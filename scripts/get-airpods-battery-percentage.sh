@@ -1,10 +1,22 @@
 #!/usr/local/bin/bash
-battery_case=`defaults read /Library/Preferences/com.apple.Bluetooth | grep BatteryPercentCase | tr -d \; | awk '{print $3}'`
-if [[ $battery_case = 0 ]]
+CONNECTION_STATUS=`system_profiler SPBluetoothDataType -xml 2> /dev/null | xpath \
+    '//dict[key[contains(text(), "AirPods")]] \
+    /dict/key[text()="device_isconnected"] \
+    /following-sibling::string[1]/text()' \
+    2> /dev/null`
+
+if [[ $CONNECTION_STATUS = "attrib_No" ]]
 then
-    echo "Disconnected";
+    echo "Not Connected";
 else
-    battery_left=`defaults read /Library/Preferences/com.apple.Bluetooth | grep BatteryPercentLeft | tr -d \; | awk '{print $3}'`
-    battery_right=`defaults read /Library/Preferences/com.apple.Bluetooth | grep BatteryPercentRight | tr -d \; | awk '{print $3}'`
-    echo L: $battery_left/R: $battery_right
+    BATTERY_CASE=`defaults read \
+        /Library/Preferences/com.apple.Bluetooth | grep \
+        BatteryPercentCase | tr -d \; | awk '{print $3}'`
+    BATTERY_LEFT=`defaults read \
+        /Library/Preferences/com.apple.Bluetooth | grep \
+        BatteryPercentLeft | tr -d \; | awk '{print $3}'`
+    BATTERY_RIGHT=`defaults read \
+        /Library/Preferences/com.apple.Bluetooth | grep \
+        BatteryPercentRight | tr -d \; | awk '{print $3}'`
+    echo CASE:$BATTERY_CASE%/L:$BATTERY_LEFT%/R:$BATTERY_RIGHT%
 fi
