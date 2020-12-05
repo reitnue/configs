@@ -32,6 +32,8 @@ export KEYTIMEOUT=5
 
 # rebind ctrl r
 bindkey "^R" history-incremental-search-backward
+# https://superuser.com/questions/476532/how-can-i-make-zshs-vi-mode-behave-more-like-bashs-vi-mode
+bindkey "^?" backward-delete-char
 
 set -o ignoreeof
 #############
