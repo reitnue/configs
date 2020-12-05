@@ -46,3 +46,4 @@ fg() {
         builtin fg %"$@"
     fi
 }
+source ~/.bash_profile
