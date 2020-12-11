@@ -1,3 +1,13 @@
+##########
+# COLORS #
+##########
+COLOR_PROMPT_PATH=172
+COLOR_PROMPT_ERROR=202
+COLOR_PROMPT_SUCCESS=82
+
+####################
+# HISTORY SETTINGS #
+####################
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
@@ -19,10 +29,12 @@ alias rm="rm -iv"
 # prompt appearance
 setopt prompt_subst
 source ~/Desktop/configs/zsh/git-prompt.sh
-export RPROMPT=$'%B%F{green}$(__git_ps1 "[%s]")%f%b'
+export RPROMPT="%B%F{$COLOR_PROMPT_SUCCESS}$(__git_ps1 "[%s]")%f%b"
 
-PROMPT='%B%F{172}%~%f%b %(?.%B%F{green}>%f%b.%B%F{red}#%f%b) '
-
+PROMPT="\
+%B%F{$COLOR_PROMPT_PATH}%~%f%b \
+%(?.%B%F{$COLOR_PROMPT_SUCCESS}>%f%b.%B%F{$COLOR_PROMPT_ERROR}#%f%b) \
+"
 ###################
 # VI KEY BINDINGS #
 ###################
@@ -36,6 +48,7 @@ bindkey "^R" history-incremental-search-backward
 bindkey "^?" backward-delete-char
 
 set -o ignoreeof
+
 #############
 # Bash `fg` #
 #############
@@ -46,4 +59,8 @@ fg() {
         builtin fg %"$@"
     fi
 }
+
+#######################
+# SOURCE BASH_PROFILE #
+#######################
 source ~/.bash_profile
