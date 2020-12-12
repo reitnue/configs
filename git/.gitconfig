@@ -1,0 +1,16 @@
+[user]
+    email = lifengawang@gmail.com
+    name = Alex Wang
+[credential]
+    helper = store
+[color "status"]
+    changed = 177
+    untracked = 177
+    added = 10
+[color "diff"]
+    new = 10
+    old = 177
+[alias]
+    logdog = log --decorate --oneline --graph
+    co = checkout
+    br = branch
