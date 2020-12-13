@@ -2,8 +2,8 @@
 # COLORS #
 ##########
 COLOR_PROMPT_PATH=172
-COLOR_PROMPT_ERROR=202
-COLOR_PROMPT_SUCCESS=82
+COLOR_PROMPT_ERROR=9
+COLOR_PROMPT_SUCCESS=10
 
 ####################
 # HISTORY SETTINGS #
@@ -17,24 +17,33 @@ zstyle :compinstall filename '/Users/Alex/.zshrc'
 autoload -Uz compinit
 compinit -u
 
-# aliases
 export CLICOLOR=1
 export LSCOLORS=Gxfxcxdxbxegedabagacad
 
+###########
+# ALIASES #
+###########
 alias ls="ls -G"
 alias lh="ls -lh -G"
 alias gst="git status"
 alias rm="rm -iv"
 
-# prompt appearance
+#####################
+# PROMPT APPEARANCE #
+#####################
+# load version control information
+autoload -Uz vcs_info
+precmd() {
+    vcs_info
+}
+zstyle ':vcs_info:git:*' formats '[%b]'
 setopt prompt_subst
-source ~/Desktop/configs/zsh/git-prompt.sh
-export RPROMPT="%B%F{$COLOR_PROMPT_SUCCESS}$(__git_ps1 "[%s]")%f%b"
-
-PROMPT="\
+export RPROMPT='%B%F{$COLOR_PROMPT_SUCCESS}${vcs_info_msg_0_}%f%b'
+export PROMPT='\
 %B%F{$COLOR_PROMPT_PATH}%~%f%b \
 %(?.%B%F{$COLOR_PROMPT_SUCCESS}>%f%b.%B%F{$COLOR_PROMPT_ERROR}#%f%b) \
-"
+'
+
 ###################
 # VI KEY BINDINGS #
 ###################
