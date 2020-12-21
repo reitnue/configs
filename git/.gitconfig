@@ -4,12 +4,12 @@
 [credential]
     helper = store
 [color "status"]
-    changed = 177
-    untracked = 177
-    added = 10
+    changed = red
+    untracked = red
+    added = green
 [color "diff"]
-    new = 10
-    old = 177
+    new = green
+    old = red
 [alias]
     logdog = log --decorate --oneline --graph
     co = checkout
