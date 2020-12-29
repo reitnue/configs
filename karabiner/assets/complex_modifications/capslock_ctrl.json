@@ -1,0 +1,29 @@
+{
+    "title": "Capslock to ctrl",
+    "rules": [
+        {
+            "description": "CAPSLOCK to CTRL if held, otherwise ESCAP",
+            "manipulators": [
+                "from": {
+                    "key_code": "caps_lock",
+                    "modifiers": {
+                        "optional": [
+                            "any"
+                        ]
+                    }
+                },
+                "to": [
+                    {
+                        "key_code": "left_control"
+                    }
+                ],
+                "to_if_alone": [
+                    {
+                        "key_code": "escape"
+                    }
+                ],
+                "type": "basic"
+            ]
+        }
+    ]
+}
