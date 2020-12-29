@@ -55,7 +55,16 @@
                     },
                     "ignore": false,
                     "manipulate_caps_lock_led": true,
-                    "simple_modifications": []
+                    "simple_modifications": [
+                        {
+                            "from": {
+                                "key_code": "left_control"
+                            },
+                            "to": {
+                                "key_code": "vk_none"
+                            }
+                        }
+                    ]
                 }
             ],
             "fn_function_keys": [
