@@ -73,3 +73,8 @@ fg() {
 # SOURCE BASH_PROFILE #
 #######################
 source ~/.bash_profile
+
+##########
+# EDITOR #
+##########
+export EDITOR="/usr/local/bin/nvim"
