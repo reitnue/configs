@@ -14,3 +14,4 @@
     logdog = log --decorate --oneline --graph
     co = checkout
     br = branch
+    cma = commit -am
