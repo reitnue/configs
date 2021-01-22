@@ -1,5 +1,5 @@
 [user]
-    email = lifengawang@gmail.com
+    email = reitnue@users.noreply.github.com
     name = Alex Wang
 [credential]
     helper = store
@@ -15,3 +15,5 @@
     co = checkout
     br = branch
     cma = commit -am
+[init]
+    defaultBranch = main
