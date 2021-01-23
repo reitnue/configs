@@ -49,7 +49,22 @@ export PROMPT='\
 ###################
 bindkey -v
 # Make Vi mode transitions faster (KEYTIMEOUT is in hundredths of a second)
-export KEYTIMEOUT=5
+export KEYTIMEOUT=1
+
+# vim-mode cursor change
+# define widgets
+function zle-line-init zle-keymap-select {
+    if [[ ${KEYMAP} == vicmd ]];
+    then
+        echo -ne '\e[1 q'
+    elif [[ ${KEYMAP} == viins ]] ||
+         [[ ${KEYMAP} == main ]];
+    then
+        echo -ne '\e[5 q'
+    fi
+}
+zle -N zle-line-init
+zle -N zle-keymap-select
 
 # rebind ctrl r
 bindkey "^R" history-incremental-search-backward
