@@ -18,3 +18,5 @@
     df = diff
 [init]
     defaultBranch = main
+[gpg]
+	program = gpg
