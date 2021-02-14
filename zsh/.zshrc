@@ -41,7 +41,12 @@ setopt prompt_subst
 export RPROMPT='%B%F{$COLOR_PROMPT_SUCCESS}${vcs_info_msg_0_}%f%b'
 export PROMPT='\
 %B%F{$COLOR_PROMPT_PATH}%~%f%b \
-$(~/Desktop/configs/scripts/has-unpushed-commits.sh = + x) \
+$(
+    ~/Desktop/configs/scripts/has-unpushed-commits.sh \
+        %B%F{$COLOR_PROMPT_SUCCESS}=%f%b \
+        %B%F{cyan}+%f%b \
+        %B%F{$COLOR_PROMPT_ERROR}x%f%b \
+) \
 %(?.%B%F{$COLOR_PROMPT_SUCCESS}>%f%b.%B%F{$COLOR_PROMPT_ERROR}#%f%b) \
 '
 
