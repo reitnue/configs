@@ -26,7 +26,6 @@ export LSCOLORS=Gxfxcxdxbxegedabagacad
 alias ls="ls -G"
 alias lh="ls -lh -G"
 alias gst="git status"
-alias rm="rm -iv"
 
 #####################
 # PROMPT APPEARANCE #
