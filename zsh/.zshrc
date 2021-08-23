@@ -39,7 +39,7 @@ zstyle ':vcs_info:git:*' formats '[%b]'
 setopt prompt_subst
 export RPROMPT='%B%F{$COLOR_PROMPT_SUCCESS}${vcs_info_msg_0_}%f%b'
 export PROMPT='\
-%B%F{$COLOR_PROMPT_PATH}%~%f%b \
+%B%F{$COLOR_PROMPT_PATH}%~%f%b
 $(
     ~/Desktop/configs/scripts/has-unpushed-commits.sh \
         %B%F{$COLOR_PROMPT_SUCCESS}=%f%b \
@@ -98,3 +98,6 @@ source ~/.bash_profile
 # EDITOR #
 ##########
 export EDITOR="/usr/local/bin/nvim"
+
+# opam configuration
+test -r /Users/Alex/.opam/opam-init/init.zsh && . /Users/Alex/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
