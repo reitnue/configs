@@ -68,8 +68,9 @@ function zle-line-init zle-keymap-select {
         echo -ne '\e[5 q'
     fi
 }
-zle -N zle-line-init
-zle -N zle-keymap-select
+# uncomment below 2 lines to have bar and block cursors
+# zle -N zle-line-init
+# zle -N zle-keymap-select
 
 # rebind ctrl r
 bindkey "^R" history-incremental-search-backward
